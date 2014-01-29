@@ -1,0 +1,5 @@
+c:\users\daniel\documents\visual studio 2010\Projects\tanks4nothing\tanks4nothing\tanks4nothing\bin\Xbox 360\Debug\tanks4nothing.exe
+c:\users\daniel\documents\visual studio 2010\Projects\tanks4nothing\tanks4nothing\tanks4nothing\bin\Xbox 360\Debug\tanks4nothing.pdb
+c:\users\daniel\documents\visual studio 2010\Projects\tanks4nothing\tanks4nothing\tanks4nothing\obj\Xbox 360\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\daniel\documents\visual studio 2010\Projects\tanks4nothing\tanks4nothing\tanks4nothing\obj\Xbox 360\Debug\tanks4nothing.exe
+c:\users\daniel\documents\visual studio 2010\Projects\tanks4nothing\tanks4nothing\tanks4nothing\obj\Xbox 360\Debug\tanks4nothing.pdb
