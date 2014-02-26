@@ -340,7 +340,6 @@ namespace tanks4nothing
 
             if (timer.elapsedTime() <= 0 && !restarting)
             {
-
                 gameOver = true;
                 gameIsIn = GameState.Menu;
             }

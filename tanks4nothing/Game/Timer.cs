@@ -26,12 +26,15 @@ namespace tanks4nothing
         int tempPauseTime;
         DateTime startPaused;
         bool paused = false;
+        int test;
 
         public Timer(int timeS_)
         {
             beginingTime = DateTime.Now;
             totalPaused = 0;
             timeS = timeS_;
+            test = timeS;
+            update();
         }
 
         public void update()
@@ -41,7 +44,7 @@ namespace tanks4nothing
 
         public int elapsedTime()
         {
-            return paused ? 1 : ((timeS - currentTime.Subtract(beginingTime).Seconds) + totalPaused);
+            return paused ? 1 : ((timeS - (int)(currentTime.Subtract(beginingTime)).TotalSeconds) + totalPaused);;
         }
 
         public void startPause()
@@ -57,7 +60,7 @@ namespace tanks4nothing
         public void stopPause()
         {
             tempPauseTime = 0;
-            tempPauseTime = DateTime.Now.Subtract(startPaused).Seconds;
+            tempPauseTime = (int)DateTime.Now.Subtract(startPaused).TotalSeconds;
             totalPaused += tempPauseTime;
             //Console.WriteLine(totalPaused);
             paused = false;
