@@ -108,20 +108,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game\Agent.cs" />
-    <Compile Include="Game\Collision System\CollideBlock.cs" />
-    <Compile Include="Game\Collision System\Collider.cs" />
-    <Compile Include="Game\Decals.cs" />
-    <Compile Include="Game\Flag\Flag.cs" />
-    <Compile Include="Game\Projectile.cs" />
-    <Compile Include="Game\GameObject.cs" />
-    <Compile Include="Game\LevelMan.cs" />
-    <Compile Include="Game\Player.cs" />
-    <Compile Include="Game\Timer.cs" />
-    <Compile Include="Game\Wall.cs" />
+    <Compile Include="game\Agent.cs" />
+    <Compile Include="game\Collision System\CollideBlock.cs" />
+    <Compile Include="game\Collision System\Collider.cs" />
+    <Compile Include="game\Global.cs" />
+    <Compile Include="game\Decals.cs" />
+    <Compile Include="game\Flag\Flag.cs" />
+    <Compile Include="game\Projectile.cs" />
+    <Compile Include="game\GameObject.cs" />
+    <Compile Include="game\LevelMan.cs" />
+    <Compile Include="game\Player.cs" />
+    <Compile Include="game\Sound\AudioManager.cs" />
+    <Compile Include="game\Sound\PitchManager.cs" />
+    <Compile Include="game\Sound\SoundEffectInstanceManager.cs" />
+    <Compile Include="game\Timer.cs" />
+    <Compile Include="game\Wall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game\TankGame.cs" />
+    <Compile Include="game\TankGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MenuManagement\Game.ico" />

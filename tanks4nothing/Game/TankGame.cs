@@ -9,7 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Diagnostics;
-
+using tanks4nothing.Game.Sound;
+using tanks4nothing.Game;
 
 namespace tanks4nothing
 {
@@ -18,10 +19,12 @@ namespace tanks4nothing
     /// </summary>
     public class TankGame : Microsoft.Xna.Framework.Game
     {
-
+        
         enum GameState{
             Menu, Playing, Paused
         }
+
+        public static float Volume;
 
         bool gameOver;
         bool restarting = false;
@@ -99,7 +102,7 @@ namespace tanks4nothing
         List<Agent> agentList; //= new List<Agent>();
 
         //Initial Player Poisition
-        Player player1;
+        Player player1 ;
         Player player2;
 
 /// <summary>
@@ -107,7 +110,6 @@ namespace tanks4nothing
 /// </summary>
         public TankGame()
         {
-
             graphics = new GraphicsDeviceManager(this);
 
             //Set preferred resolution
@@ -116,9 +118,14 @@ namespace tanks4nothing
 
             //set conent directory
             Content.RootDirectory = "Content";
+
+            Global.AudioPlayer = new AudioManager(this);
+            //Initialize Global stuffs - used for sound.
+
         }
 
         public void InputManager(){
+            
             GPstateP1Old = GPstateP1;
             GPstateP2Old = GPstateP2;
             KBstateOld = KBstate;
@@ -178,6 +185,8 @@ namespace tanks4nothing
         /// </summary>
         protected override void Initialize()
         {
+            
+            
             gameOver = false;
             //gameIsIn = GameState.Playing;
             restarting = false;
