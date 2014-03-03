@@ -45,7 +45,9 @@ namespace tanks4nothing.Game.Sound
             if (instances[currentInstance] == null)
             {
                 instances[currentInstance] = sound.CreateInstance();
-                instances[currentInstance].Volume = TankGame.Volume;
+                //Play around with pitch here
+                instances[currentInstance].Pitch = -1.0f;
+                //instances[currentInstance].Volume = TankGame.Volume;
                 instances[currentInstance].Play();
             }
             else if (instances[currentInstance].State == SoundState.Playing)
@@ -54,7 +56,9 @@ namespace tanks4nothing.Game.Sound
                 {
                     if(instances[possibleInstance]==null)
                         instances[possibleInstance] = sound.CreateInstance();
-                    instances[possibleInstance].Volume = TankGame.Volume;
+                    //instances[possibleInstance].Volume = TankGame.Volume;
+                    //Play around with pitch here
+                    instances[currentInstance].Pitch = -1.0f;
                     instances[possibleInstance].Play();
                     currentInstance = possibleInstance;
                 }else if (instances[possibleInstance].State == SoundState.Playing)

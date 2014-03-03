@@ -37,7 +37,7 @@ namespace tanks4nothing
         /// <param name="bList">//bullet list (this is needed)</param>
         /// <param name="bulletSize_">this might be needed</param>
         public Agent(Vector2 position_, int boxSide_, List<Projectile> bList, int bulletSize_, List<Agent> gameAgentList_, List<Decals> decalList_, int[] PlayerScores_)
-            : base(position_, -1, boxSide_, bList, bulletSize_, decalList_,PlayerScores_)
+            : base(position_, -1, boxSide_, bList, bulletSize_, decalList_,PlayerScores_,null)
         {
             Randoom=new Random();
             gameAgentList = gameAgentList_;

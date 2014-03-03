@@ -125,7 +125,8 @@ namespace tanks4nothing
         /// <param name="isMusic">Is this game sound, a music clip?</param>
         public void LoadGameSound(SoundEffect SEffect, string effectName, int instances, float volume, bool isMusic)
         {
-            gameSounds.Add(effectName, new SoundEffectInstanceManager(SEffect, instances, volume, isMusic));
+            if (!gameSounds.ContainsKey(effectName))
+                gameSounds.Add(effectName, new SoundEffectInstanceManager(SEffect, instances, volume, isMusic));
         }
 
         public void SwitchToGame()
@@ -162,32 +163,6 @@ namespace tanks4nothing
 
         #endregion
 
-        #region Instance Disposal Methods
-        ///// <summary>
-        ///// Clean up the component when it is disposing.
-        ///// </summary>
-        //protected override void Dispose(bool disposing)
-        //{
-        //    try
-        //    {
-        //        if (disposing)
-        //        {
-        //            foreach (var item in soundBank)
-        //            {
-        //                item.Value.Dispose();
-        //            }
-        //            soundBank.Clear();
-        //            soundBank = null;
-        //        }
-        //    }
-        //    finally
-        //    {
-        //        base.Dispose(disposing);
-        //    }
-        //}
-
-
-        #endregion
     }
 
 }

@@ -158,3 +158,5 @@ C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\obj\x86\Debug\Microsoft.Xna.F
 C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\obj\x86\Debug\tanks4nothing.exe
 C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\obj\x86\Debug\tanks4nothing.pdb
 C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\obj\x86\Debug\tanks4nothing.csprojResolveAssemblyReference.cache
+C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\bin\x86\Debug\Content\Seffects\appear-online.xnb
+C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\bin\x86\Debug\Content\Seffects\click3.xnb

@@ -307,6 +307,24 @@
       <Output>C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\bin\x86\Debug\Content\HudFontal.xnb</Output>
       <Time>2014-01-29T17:25:20.5492258+02:00</Time>
     </Item>
+    <Item>
+      <Source>Seffects\appear-online.wav</Source>
+      <Name>Seffects\appear-online</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\bin\x86\Debug\Content\Seffects\appear-online.xnb</Output>
+      <Time>2014-03-03T22:14:59.7841461+02:00</Time>
+    </Item>
+    <Item>
+      <Source>Seffects\click3.wav</Source>
+      <Name>Seffects\click3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\UCT\Honors\UXG\Game\tanks4nothing\tanks4nothing\bin\x86\Debug\Content\Seffects\click3.xnb</Output>
+      <Time>2014-03-03T22:14:59.7891784+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

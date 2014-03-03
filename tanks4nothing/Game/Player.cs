@@ -38,6 +38,10 @@ namespace tanks4nothing
         //Player 1 or 2?
         int player;
 
+        public int PlayerN{
+            get { return player; }
+        }
+
         public Agent Minion;
 
         //movement sspeed
@@ -53,7 +57,8 @@ namespace tanks4nothing
         /// <param name="bulletSize_"></param>
         /// <param name="decalList_">list of stickers (explosions etc)</param>
         /// <param name="PlayerScores_">int array containing player scores (so Projectiles can update scores)</param>
-        public Player(Vector2 position_, int player_, int boxSide_, List<Projectile> bList, int bulletSize_, List<Decals> decalList_, int[] PlayerScores_)
+        /// <param name="soundEffect_">the name of the sound effect that will be played for this player</param>
+        public Player(Vector2 position_, int player_, int boxSide_, List<Projectile> bList, int bulletSize_, List<Decals> decalList_, int[] PlayerScores_, String soundEffect_)
         {
             bulletSize = bulletSize_;
             bulletList = bList;

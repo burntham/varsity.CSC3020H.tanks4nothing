@@ -10,7 +10,6 @@ namespace tanks4nothing.Game
     public class Global
     {
         public static AudioManager AudioPlayer;
-        //public static SoundEffectInstanceManager effectManager;
 
     }
 }

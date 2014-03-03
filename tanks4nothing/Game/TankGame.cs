@@ -19,12 +19,21 @@ namespace tanks4nothing
     /// </summary>
     public class TankGame : Microsoft.Xna.Framework.Game
     {
+        string player1Sound = "1";
+        string player2Sound = "2";
+        int soundInstances = 50;
+
+        string player1SoundFile = "Seffects/appear-online";
+        string player2SoundFile = "Seffects/click3";
+
+        SoundEffect player1SoundEffect;
+        SoundEffect player2SoundEffect;
         
         enum GameState{
             Menu, Playing, Paused
         }
 
-        public static float Volume;
+        public static float Volume = 1.0f;
 
         bool gameOver;
         bool restarting = false;
@@ -185,7 +194,7 @@ namespace tanks4nothing
         /// </summary>
         protected override void Initialize()
         {
-            
+            Global.AudioPlayer = new AudioManager(this);
             
             gameOver = false;
             //gameIsIn = GameState.Playing;
@@ -215,11 +224,16 @@ namespace tanks4nothing
 
             PlayerScores = new int[2]{0,0};
 
-            player1 = new Player(new Vector2(0f * wallBoundingBoxSize, 0f * wallBoundingBoxSize), 1, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, PlayerScores);
-            player2 = new Player(new Vector2(57f * wallBoundingBoxSize, 27f * wallBoundingBoxSize), 2, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, PlayerScores);
+            player1 = new Player(new Vector2(0f * wallBoundingBoxSize, 0f * wallBoundingBoxSize), 1, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, PlayerScores, player1Sound);
+            player2 = new Player(new Vector2(57f * wallBoundingBoxSize, 27f * wallBoundingBoxSize), 2, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, PlayerScores, player2Sound);
 
             agentList.Add(new Agent(new Vector2(30f * wallBoundingBoxSize, 15f * wallBoundingBoxSize), wallBoundingBoxSize, BulletList, bulletBoundingBoxSize, agentList, decalList, new int[2]));
-  
+
+            player1SoundEffect = Content.Load<SoundEffect>(player1SoundFile);
+            player2SoundEffect = Content.Load<SoundEffect>(player2SoundFile);
+
+            Global.AudioPlayer.LoadGameSound(player1SoundEffect, player1Sound, soundInstances, 1.0f, false);
+            Global.AudioPlayer.LoadGameSound(player2SoundEffect, player2Sound, soundInstances, 1.0f, false);
             // TODO: Add your initialization logic here
             base.Initialize();
         }
@@ -258,6 +272,8 @@ namespace tanks4nothing
             menu = Content.Load<Texture2D>("Menu/MenuScreen");
 
             pauseMenu = Content.Load<Texture2D>("Menu/PauseScreen");
+
+
            
         }
 

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using tanks4nothing.Game;
 using System.Diagnostics;
 
 namespace tanks4nothing{
@@ -127,7 +128,12 @@ namespace tanks4nothing{
             }
             else
             {
+                //This is where Points are updated;
                 SourceObject.updatePoints(1);
+                
+                //SOUND HERE!!!!
+                
+                Global.AudioPlayer.PlayGameSound((SourceObject.PlayerN==1)?"1":"2");
             }
         }
 
