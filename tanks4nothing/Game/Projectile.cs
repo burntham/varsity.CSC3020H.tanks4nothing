@@ -133,7 +133,7 @@ namespace tanks4nothing{
                 
                 //SOUND HERE!!!!
                 
-                Global.AudioPlayer.PlayGameSound((SourceObject.PlayerN==1)?"1":"2");
+                Global.AudioPlayer.PlayGameSound(SourceObject.PlayerN);
             }
         }
 

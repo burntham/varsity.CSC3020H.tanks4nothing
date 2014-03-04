@@ -10,6 +10,8 @@ namespace tanks4nothing.Game
     public class Global
     {
         public static AudioManager AudioPlayer;
-
+        public static int[] PlayerScores;
+        public static float[] pitch = {0.0f,0.0f,0.0f};
+        public static int timeLeft=90;
     }
 }

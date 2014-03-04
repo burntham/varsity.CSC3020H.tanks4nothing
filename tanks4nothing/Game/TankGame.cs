@@ -21,7 +21,7 @@ namespace tanks4nothing
     {
         string player1Sound = "1";
         string player2Sound = "2";
-        int soundInstances = 50;
+        int soundInstances = 30;
 
         string player1SoundFile = "Seffects/appear-online";
         string player2SoundFile = "Seffects/click3";
@@ -64,7 +64,7 @@ namespace tanks4nothing
         int tilesLong=60;
         int tilesHigh=30;
 
-        int[] PlayerScores;
+        //int[] Global.PlayerScores;
 
         int tempSelectCount = 1;
         
@@ -129,6 +129,7 @@ namespace tanks4nothing
             Content.RootDirectory = "Content";
 
             Global.AudioPlayer = new AudioManager(this);
+            Global.timeLeft = Time;
             //Initialize Global stuffs - used for sound.
 
         }
@@ -194,7 +195,9 @@ namespace tanks4nothing
         /// </summary>
         protected override void Initialize()
         {
+            Global.timeLeft = Time;
             Global.AudioPlayer = new AudioManager(this);
+            
             
             gameOver = false;
             //gameIsIn = GameState.Playing;
@@ -222,10 +225,10 @@ namespace tanks4nothing
             LevelMan.initialize(tilesLong, tilesHigh, wallBoundingBoxSize);
             Collider.populate(LevelMan.wallObjects);
 
-            PlayerScores = new int[2]{0,0};
+            Global.PlayerScores = new int[2]{0,0};
 
-            player1 = new Player(new Vector2(0f * wallBoundingBoxSize, 0f * wallBoundingBoxSize), 1, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, PlayerScores, player1Sound);
-            player2 = new Player(new Vector2(57f * wallBoundingBoxSize, 27f * wallBoundingBoxSize), 2, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, PlayerScores, player2Sound);
+            player1 = new Player(new Vector2(0f * wallBoundingBoxSize, 0f * wallBoundingBoxSize), 1, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, Global.PlayerScores, player1Sound);
+            player2 = new Player(new Vector2(57f * wallBoundingBoxSize, 27f * wallBoundingBoxSize), 2, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, Global.PlayerScores, player2Sound);
 
             agentList.Add(new Agent(new Vector2(30f * wallBoundingBoxSize, 15f * wallBoundingBoxSize), wallBoundingBoxSize, BulletList, bulletBoundingBoxSize, agentList, decalList, new int[2]));
 
@@ -429,9 +432,11 @@ namespace tanks4nothing
                 }
 
                 ///Drawer score etc
-                string PlayerScore1 = "" + PlayerScores[0];
-                string PlayerScore2 = "" + PlayerScores[1];
+                string PlayerScore1 = "" + Global.PlayerScores[0];
+                string PlayerScore2 = "" + Global.PlayerScores[1];
                 string timeLeft = "" + timer.elapsedTime();
+                Global.timeLeft = timer.elapsedTime();
+
                 spriteBatch.DrawString(hudFont, PlayerScore1, new Vector2(210, 10f), Color.Red);
                 spriteBatch.DrawString(hudFont, PlayerScore2, new Vector2(1080, 10f), Color.Red);
                 spriteBatch.DrawString(hudFont, timeLeft, new Vector2(610, 10f), Color.BlueViolet);
@@ -445,7 +450,7 @@ namespace tanks4nothing
 
                 if (gameOver)
                 {
-                    int win = (PlayerScores[0] >= PlayerScores[1]) ? 1 : 2;
+                    int win = (Global.PlayerScores[0] >= Global.PlayerScores[1]) ? 1 : 2;
                     string Winner = string.Format("Player{0} wins!", win);
                     spriteBatch.DrawString(hudFont, Winner, new Vector2(250, 100), Color.Firebrick);
                 }

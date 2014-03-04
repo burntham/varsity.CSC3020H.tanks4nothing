@@ -62,58 +62,59 @@ namespace tanks4nothing
         /// </summary>
         /// <param name="effectName eg. pistol"></param>
         /// <param name="volume"></param>
-        public void PlayGameSound(string effectName)
+        public void PlayGameSound(int effectName)
         {
-            gameSounds[effectName].playSound();
+
+            gameSounds[""+effectName].playSound(effectName);
         }
 
-        public int Music
-        {
-            set
-            {
-                if (value == 0)
-                    musicVolume = 1.0f;
-                else
-                    musicVolume = 0.0f;
+        //public int Music
+        //{
+        //    set
+        //    {
+        //        if (value == 0)
+        //            musicVolume = 1.0f;
+        //        else
+        //            musicVolume = 0.0f;
 
-                menuMusic.resetVolume();                
-            }
-            get
-            {
-                if (musicVolume == 0)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-        }
+        //        menuMusic.resetVolume();                
+        //    }
+        //    get
+        //    {
+        //        if (musicVolume == 0)
+        //        {
+        //            return 1;
+        //        }
+        //        else
+        //        {
+        //            return 0;
+        //        }
+        //    }
+        //}
 
 
-        public int Volume
-        {
-            set {
-                if (value == 0)
-                    masterVolume = 0.1f;
-                else if (value == 1)
-                    masterVolume = 0.5f;
-                else
-                    masterVolume = 1.0f;
+        //public int Volume
+        //{
+        //    set {
+        //        if (value == 0)
+        //            masterVolume = 0.1f;
+        //        else if (value == 1)
+        //            masterVolume = 0.5f;
+        //        else
+        //            masterVolume = 1.0f;
 
-                menuMusic.resetVolume();
-                }
-            get
-            {
-                if (masterVolume == 0.1f)
-                    return 0;
-                else if (masterVolume == 0.5f)
-                    return 1;
-                else
-                    return 2;
-            }
-        }
+        //        menuMusic.resetVolume();
+        //        }
+        //    get
+        //    {
+        //        if (masterVolume == 0.1f)
+        //            return 0;
+        //        else if (masterVolume == 0.5f)
+        //            return 1;
+        //        else
+        //            return 2;
+        //    }
+        //}
 
         /// <summary>
         /// Load the Game sounds effects and music (Excludes menu stuff)
@@ -129,19 +130,19 @@ namespace tanks4nothing
                 gameSounds.Add(effectName, new SoundEffectInstanceManager(SEffect, instances, volume, isMusic));
         }
 
-        public void SwitchToGame()
-        {
-            menuMusic.Pause();
-            foreach (SoundEffectInstanceManager sounds in gameSounds.Values)
-                sounds.Resume();
-        }
+        //public void SwitchToGame()
+        //{
+        //    menuMusic.Pause();
+        //    foreach (SoundEffectInstanceManager sounds in gameSounds.Values)
+        //        sounds.Resume();
+        //}
 
-        public void SwitchToMenu()
-        {
-            foreach (SoundEffectInstanceManager sounds in gameSounds.Values)
-                sounds.Pause();
-            menuMusic.Resume();
-        }
+        //public void SwitchToMenu()
+        //{
+        //    foreach (SoundEffectInstanceManager sounds in gameSounds.Values)
+        //        sounds.Pause();
+        //    menuMusic.Resume();
+        //}
 
 
         #region Loading Methodes
@@ -158,7 +159,7 @@ namespace tanks4nothing
 
         public void PlayMenuMusic()
         {
-            menuMusic.playSound();
+            //menuMusic.playSound();
         }
 
         #endregion
