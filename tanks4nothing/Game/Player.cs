@@ -190,16 +190,14 @@ namespace tanks4nothing
 
          public void updateAi()
          {
-             if (moved)
-             {
                  prevPosition = position;
-             }
 
-             foreach (CollideBlock hasme in containedInList)
-             {
-                 hasme.remove(this);
-             }
-             containedInList.Clear();
+
+                 foreach (CollideBlock hasme in containedInList)
+                 {
+                     hasme.remove(this);
+                 }
+                 containedInList.Clear();
 
              //Handle Movement and Shooting below
              shootTimer = (shootTimer == 0) ? 0 : --shootTimer;
