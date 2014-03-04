@@ -63,9 +63,6 @@ namespace tanks4nothing.Game.Sound
             {
                 Global.pitch[0] = 0.0f; Global.pitch[1] = 0.0f;
             }
-            
-
-
         }
 
         //Play the sound associated with the manager
@@ -114,53 +111,5 @@ namespace tanks4nothing.Game.Sound
             }
             
         }
-
-        //public void PlayLoopSingle()
-        //{
-        //    instances[0] = sound.CreateInstance();
-        //    instances[0].Volume = TankGame.Volume;
-        //    instances[0].IsLooped = true;
-        //    instances[0].Play();
-        //}
-
-        ///// <summary>
-        ///// Pause
-        ///// </summary>
-        //public void Pause()
-        //{
-        //    for (int i = 0; i < numInstances; ++i)
-        //        if (instances[i]!=null)
-        //        {
-        //            instances[i].Volume = TankGame.Volume;
-        //            if (instances[i].State == SoundState.Playing)
-        //                instances[i].Pause();
-        //        }
-        //}
-
-        ///// <summary>
-        ///// Resume
-        ///// </summary>
-        //public void Resume()
-        //{
-        //    for (int i = 0; i < numInstances; ++i)
-        //        if (instances[i] != null)
-        //        {
-        //            if (instances[i].State == SoundState.Paused)
-        //            {
-        //                instances[i].Resume();
-        //                //instances[i].Pitch = Global.pitch[player];
-        //                instances[i].Volume = TankGame.Volume;
-        //            }
-        //        }
-        //}
-
-        //public void resetVolume()
-        //{
-        //    foreach(SoundEffectInstance sEffect in instances)
-        //    {
-        //        if(sEffect!=null)
-        //            sEffect.Volume = TankGame.Volume;
-        //    }
-        //}
     }
 }

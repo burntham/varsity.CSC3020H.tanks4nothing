@@ -23,6 +23,15 @@ namespace tanks4nothing
 
         protected bool moved = false;
         int[] PlayerScores;
+
+        /// <summary>
+        /// AI STUFFS
+        /// </summary>
+        Boolean isAI = false;
+        protected Random Randoom;
+        protected int movementCooldown = 100;
+        protected int movementTimer;
+
         
         public Color colour;
 
@@ -58,7 +67,7 @@ namespace tanks4nothing
         /// <param name="decalList_">list of stickers (explosions etc)</param>
         /// <param name="PlayerScores_">int array containing player scores (so Projectiles can update scores)</param>
         /// <param name="soundEffect_">the name of the sound effect that will be played for this player</param>
-        public Player(Vector2 position_, int player_, int boxSide_, List<Projectile> bList, int bulletSize_, List<Decals> decalList_, int[] PlayerScores_, String soundEffect_)
+        public Player(Vector2 position_, int player_, int boxSide_, List<Projectile> bList, int bulletSize_, List<Decals> decalList_, int[] PlayerScores_, String soundEffect_, Boolean isAi_)
         {
             bulletSize = bulletSize_;
             bulletList = bList;
@@ -67,6 +76,8 @@ namespace tanks4nothing
             bbSideLength = boxSide_;
             decalList = decalList_;
             PlayerScores = PlayerScores_;
+            isAI = isAi_;
+            Randoom = new Random();
 
             if (player == 1)
             {
@@ -87,7 +98,15 @@ namespace tanks4nothing
             //position.Y = MathHelper.Clamp(position.Y, 2 * Collider.tileSize, (Collider.fieldHeight - bbSideLength - Collider.tileSize));
         }
 
-         public void update(GamePadState gamepad_, KeyboardState keyboard_)
+        public void update(GamePadState gamepad_, KeyboardState keyboard_)
+        {
+            if (isAI)
+                updateAi();
+            else
+                updatePlayer(gamepad_, keyboard_);
+        }
+
+         public void updatePlayer(GamePadState gamepad_, KeyboardState keyboard_)
         {
             shootTimer =( shootTimer == 0) ? 0 : --shootTimer;
             //Console.WriteLine(shootTimer);
@@ -168,6 +187,101 @@ namespace tanks4nothing
 
             Collider.updatePos(this, bbSideLength);
         }
+
+         public void updateAi()
+         {
+             if (moved)
+             {
+                 prevPosition = position;
+             }
+
+             foreach (CollideBlock hasme in containedInList)
+             {
+                 hasme.remove(this);
+             }
+             containedInList.Clear();
+
+             //Handle Movement and Shooting below
+             shootTimer = (shootTimer == 0) ? 0 : --shootTimer;
+             movementTimer = (movementTimer == 0) ? 0 : --movementTimer;
+
+             if (movementTimer == 0)
+             {
+                 //assign a random direction
+                 orientation = Randoom.Next(0, 4);
+                 moved = true;
+
+                 //position.X = (float)Math.Round((float)position.X / 5) * 5;
+                 //position.Y = (float)Math.Round((float)position.Y / 5) * 5;
+
+                 if (orientation == 3)
+                 {
+                     velocity = new Vector2(-1f, 0f) * MS;
+                 }
+                 else if (orientation == 1)
+                 {
+                     velocity = new Vector2(1f, 0f) * MS;
+
+                 }
+                 else if (orientation == 2)
+                 {
+                     velocity = new Vector2(0f, 1f) * MS;
+
+                 }
+                 else if (orientation == 0)
+                 {
+                     velocity = new Vector2(0f, -1f) * MS;
+
+                 }
+                 movementTimer = Randoom.Next(0, movementCooldown);
+             }
+
+             position += velocity;
+
+             if (shootTimer == 0)
+             {
+                 if (CurrentBullet.Count == 0 && shootTimer == 0)
+                 {
+                     shootTimer = Randoom.Next(0, 30);
+
+                     Vector2 firePos;
+                     Vector2 fireDir;
+                     float fireAider = bbSideLength / 2;
+
+
+                     if (orientation == 0)
+                     {
+                         firePos = new Vector2(position.X + fireAider - 5, position.Y - 5);
+                         fireDir = new Vector2(0f, -1f);
+
+                     }
+                     else if (orientation == 1)
+                     {
+                         firePos = new Vector2(position.X + bbSideLength - 5, position.Y + fireAider - 5);
+                         fireDir = new Vector2(1f, 0f);
+                     }
+                     else if (orientation == 2)
+                     {
+                         firePos = new Vector2(position.X + fireAider - 5, position.Y + bbSideLength - 5);
+                         fireDir = new Vector2(0f, 1f);
+                     }
+                     else
+                     {
+                         firePos = new Vector2(position.X - 5, position.Y + fireAider - 5);
+                         fireDir = new Vector2(-1f, 0f);
+                     }
+
+                         CurrentBullet.Add(new Projectile(firePos, fireDir, orientation, this, bulletList, bulletSize, decalList));
+
+                 }
+             }
+             position.X = MathHelper.Clamp(position.X, Collider.tileSize, (Collider.fieldLength - bbSideLength - Collider.tileSize));
+             //position.X = (float)Math.Round((float)position.X / 5) * 5;
+             position.Y = MathHelper.Clamp(position.Y, Collider.tileSize, (Collider.fieldHeight - bbSideLength - Collider.tileSize));
+             //position.Y = (float)Math.Round((float)position.Y / 5) * 5;
+
+             Collider.updatePos(this, bbSideLength);
+         }
 
          public void reload(Projectile bullet)
          {

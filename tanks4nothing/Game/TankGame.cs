@@ -21,6 +21,7 @@ namespace tanks4nothing
     {
         string player1Sound = "1";
         string player2Sound = "2";
+        Boolean withAi = true;
         int soundInstances = 30;
 
         string player1SoundFile = "Seffects/appear-online";
@@ -227,8 +228,8 @@ namespace tanks4nothing
 
             Global.PlayerScores = new int[2]{0,0};
 
-            player1 = new Player(new Vector2(0f * wallBoundingBoxSize, 0f * wallBoundingBoxSize), 1, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, Global.PlayerScores, player1Sound);
-            player2 = new Player(new Vector2(57f * wallBoundingBoxSize, 27f * wallBoundingBoxSize), 2, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, Global.PlayerScores, player2Sound);
+            player1 = new Player(new Vector2(0f * wallBoundingBoxSize, 0f * wallBoundingBoxSize), 1, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, Global.PlayerScores, player1Sound, false);
+            player2 = new Player(new Vector2(57f * wallBoundingBoxSize, 27f * wallBoundingBoxSize), 2, playerBoundingBoxSize, BulletList, bulletBoundingBoxSize, decalList, Global.PlayerScores, player2Sound, withAi);
 
             agentList.Add(new Agent(new Vector2(30f * wallBoundingBoxSize, 15f * wallBoundingBoxSize), wallBoundingBoxSize, BulletList, bulletBoundingBoxSize, agentList, decalList, new int[2]));
 
