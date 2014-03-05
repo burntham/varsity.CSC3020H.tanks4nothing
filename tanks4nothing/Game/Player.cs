@@ -110,7 +110,10 @@ namespace tanks4nothing
         {
             shootTimer =( shootTimer == 0) ? 0 : --shootTimer;
             //Console.WriteLine(shootTimer);
-            prevPosition = position;            
+            prevPosition = position;
+
+            //if (position.X< 25)
+            //    orientation = 2;
 
             foreach (CollideBlock hasme in containedInList)
             {
@@ -203,10 +206,81 @@ namespace tanks4nothing
              shootTimer = (shootTimer == 0) ? 0 : --shootTimer;
              movementTimer = (movementTimer == 0) ? 0 : --movementTimer;
 
-             if (movementTimer == 0)
+             Boolean newOrientation = false;
+             //in top left corner
+             #region adjust orientation
+             if (position.X <= 21 && position.Y <=21)
+             {
+                 if (orientation == 0 || orientation == 3)
+                 {
+                     orientation = Randoom.Next(1, 3);
+                     newOrientation = true;
+                 }
+             }
+             else if (position.X <= 21 && position.Y >= 449)
+             {
+                 if (orientation == 3 || orientation == 2)
+                 {
+                     orientation = Randoom.Next(0, 2);
+                     newOrientation = true;
+                 }
+             }
+             else if (position.X >=1149 && position.Y <= 21)
+             {
+                 if (orientation == 0 || orientation == 1)
+                 {
+                     orientation = Randoom.Next(2, 4);
+                     newOrientation = true;
+                 }
+             }
+             else if (position.X >= 1150 && position.Y >= 550)
+             {
+                 if (orientation == 1 || orientation == 2)
+                 {
+                     orientation = Randoom.Next(3, 5) % 4;
+                     newOrientation = true;
+                 }
+             }
+             else if (position.X <= 20)
+             {
+                 if (orientation == 3)
+                 {
+                     orientation = Randoom.Next(0, 3);
+                     newOrientation = true;
+                 }                 
+             }
+             else if (position.X >= 1150)
+             {
+                 if (orientation == 1)
+                 {
+                     orientation = Randoom.Next(0, 3) + 1;
+                     newOrientation = true;
+                 }
+             }
+             else if (position.Y <= 20)
+             {
+                 if (orientation == 0)
+                 {
+                     orientation = Randoom.Next(1, 4);
+                     newOrientation = true;
+                 }
+             }
+             else if (position.Y >= 550)
+             {
+                 if (orientation == 2)
+                 {
+                     orientation = Randoom.Next(3, 6)%4;
+                     newOrientation = true;
+                 }
+             }
+             #endregion
+
+
+             if (movementTimer == 0 || newOrientation)
              {
                  //assign a random direction
-                 orientation = Randoom.Next(0, 4);
+                 if (!newOrientation)
+                    orientation = Randoom.Next(0, 4);
                  moved = true;
 
                  //position.X = (float)Math.Round((float)position.X / 5) * 5;
@@ -231,7 +305,8 @@ namespace tanks4nothing
                      velocity = new Vector2(0f, -1f) * MS;
 
                  }
-                 movementTimer = Randoom.Next(0, movementCooldown);
+                 if (!newOrientation)
+                    movementTimer = Randoom.Next(0, movementCooldown);
              }
 
              position += velocity;

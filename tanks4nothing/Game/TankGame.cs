@@ -22,6 +22,7 @@ namespace tanks4nothing
         string player1Sound = "1";
         string player2Sound = "2";
         Boolean withAi = true;
+        Boolean fullScreen = false;
         int soundInstances = 30;
 
         string player1SoundFile = "Seffects/appear-online";
@@ -64,8 +65,6 @@ namespace tanks4nothing
         int bulletDrawSize = 10;
         int tilesLong=60;
         int tilesHigh=30;
-
-        //int[] Global.PlayerScores;
 
         int tempSelectCount = 1;
         
@@ -125,6 +124,7 @@ namespace tanks4nothing
             //Set preferred resolution
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
+            graphics.IsFullScreen = fullScreen;
 
             //set conent directory
             Content.RootDirectory = "Content";
