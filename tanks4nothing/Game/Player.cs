@@ -29,7 +29,7 @@ namespace tanks4nothing
         /// </summary>
         Boolean isAI = false;
         protected Random Randoom;
-        protected int movementCooldown = 100;
+        protected int movementCooldown = 200;
         protected int movementTimer;
 
         
@@ -315,7 +315,7 @@ namespace tanks4nothing
              {
                  if (CurrentBullet.Count == 0 && shootTimer == 0)
                  {
-                     shootTimer = Randoom.Next(0, 30);
+                     shootTimer = Randoom.Next(0, 20);
 
                      Vector2 firePos;
                      Vector2 fireDir;

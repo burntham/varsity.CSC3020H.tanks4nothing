@@ -22,11 +22,11 @@ namespace tanks4nothing
         string player1Sound = "1";
         string player2Sound = "2";
         Boolean withAi = true;
-        Boolean fullScreen = false;
+        Boolean fullScreen = true;
         int soundInstances = 30;
 
         string player1SoundFile = "Seffects/appear-online";
-        string player2SoundFile = "Seffects/click3";
+        string player2SoundFile = "Seffects/laser";
 
         SoundEffect player1SoundEffect;
         SoundEffect player2SoundEffect;
