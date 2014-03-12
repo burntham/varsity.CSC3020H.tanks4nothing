@@ -453,7 +453,7 @@ namespace tanks4nothing
                 if (gameOver)
                 {
                     int win = (Global.PlayerScores[0] >= Global.PlayerScores[1]) ? 1 : 2;
-                    string Winner = string.Format("Player{0} wins!", win);
+                    string Winner = string.Format("Player{0} wins!" + Global.PlayerScores[1], win);
                     spriteBatch.DrawString(hudFont, Winner, new Vector2(250, 100), Color.Firebrick);
                 }
 

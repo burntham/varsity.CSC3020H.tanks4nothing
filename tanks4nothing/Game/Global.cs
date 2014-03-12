@@ -15,6 +15,7 @@ namespace tanks4nothing.Game
         public static Boolean varyPitch = true;
         public static float[] pitch = {0.0f,0.0f,0.0f};
         public static int timeLeft=90;
-        public static int p2Seed = 789;
+        public static int p2Seed = 326;
+        public static int agentSeed = 987;
     }
 }

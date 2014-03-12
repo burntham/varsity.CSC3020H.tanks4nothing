@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using tanks4nothing.Game;
 
 namespace tanks4nothing
 {
@@ -39,7 +40,7 @@ namespace tanks4nothing
         public Agent(Vector2 position_, int boxSide_, List<Projectile> bList, int bulletSize_, List<Agent> gameAgentList_, List<Decals> decalList_, int[] PlayerScores_)
             : base(position_, -1, boxSide_, bList, bulletSize_, decalList_,PlayerScores_,null, true)
         {
-            Randoom=new Random();
+            Randoom=new Random(Global.agentSeed);
             gameAgentList = gameAgentList_;
             //gameAgentList.Add(this);
 
