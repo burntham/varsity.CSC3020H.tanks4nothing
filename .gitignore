@@ -1,1 +1,5 @@
 *.xnb
+tanks4nothing/bin/x86/Debug/
+tanks4nothing/obj/
+tanks4nothing/bin/
+tanks4nothingContent/obj/

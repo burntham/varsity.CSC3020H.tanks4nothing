@@ -11,7 +11,10 @@ namespace tanks4nothing.Game
     {
         public static AudioManager AudioPlayer;
         public static int[] PlayerScores;
+        public static float volume = 1.0f;
+        public static Boolean varyPitch = true;
         public static float[] pitch = {0.0f,0.0f,0.0f};
         public static int timeLeft=90;
+        public static int p2Seed = 789;
     }
 }

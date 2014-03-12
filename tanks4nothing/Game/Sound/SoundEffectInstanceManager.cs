@@ -74,7 +74,10 @@ namespace tanks4nothing.Game.Sound
         /// <param name="player">Player 1 or 2? (3 if other) - this affects pitch</param>
         public void playSound(int player_)
         {
-            updatePitch();
+            if (Global.varyPitch)
+            {
+                updatePitch();
+            }           
 
             int player = (player_ != 3) ? player_ - 1 : player_;
             //possible next instance (if current is playing)

@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using tanks4nothing.Game;
 
 namespace tanks4nothing
 {
@@ -77,7 +78,9 @@ namespace tanks4nothing
             decalList = decalList_;
             PlayerScores = PlayerScores_;
             isAI = isAi_;
-            Randoom = new Random();
+            
+            if(isAI)
+                Randoom = new Random(Global.p2Seed);
 
             if (player == 1)
             {

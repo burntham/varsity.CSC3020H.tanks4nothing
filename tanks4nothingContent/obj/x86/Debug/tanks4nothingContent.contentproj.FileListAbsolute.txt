@@ -1,3 +1,0 @@
-C:\Users\Daniel\documents\visual studio 2010\Projects\tanks4nothing\tanks4nothing\tanks4nothingContent\obj\x86\Debug\tanks4nothingContent.contentprojResolveAssemblyReference.cache
-C:\UCT\Honors\UXG\Game\GameSubmission 2\tanks4nothing\tanks4nothing\tanks4nothingContent\obj\x86\Debug\tanks4nothingContent.contentprojResolveAssemblyReference.cache
-C:\Users\dburnhamking\Documents\tanks4nothing\tanks4nothingContent\obj\x86\Debug\tanks4nothingContent.contentprojResolveAssemblyReference.cache

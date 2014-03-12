@@ -21,6 +21,9 @@ namespace tanks4nothing
     {
         string player1Sound = "1";
         string player2Sound = "2";
+
+        int Time = 90;
+        Timer timer;
         Boolean withAi = true;
         Boolean fullScreen = true;
         int soundInstances = 30;
@@ -42,8 +45,6 @@ namespace tanks4nothing
 
         int timesRun = 0;
 
-        int Time = 90;
-        Timer timer;
 
         GameState gameIsIn = GameState.Menu;
 
