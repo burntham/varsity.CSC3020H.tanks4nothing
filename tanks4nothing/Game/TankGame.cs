@@ -28,8 +28,8 @@ namespace tanks4nothing
         Boolean fullScreen = true;
         int soundInstances = 30;
 
-        string player1SoundFile = "Seffects/appear-online";
-        string player2SoundFile = "Seffects/laser";
+        string player1SoundFile = "Seffects/laser";
+        string player2SoundFile = "Seffects/appear-online";
 
         SoundEffect player1SoundEffect;
         SoundEffect player2SoundEffect;
