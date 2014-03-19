@@ -16,7 +16,9 @@ namespace tanks4nothing
     class Player : GameObject
     {
         GamePadState gamepad;
+        GamePadState gamepadOld;
         KeyboardState keyboard;
+        KeyboardState keyboardOld;
 
         //Shoot cooldown timer
         protected int cooldown=10;
@@ -124,13 +126,15 @@ namespace tanks4nothing
             }
             containedInList.Clear();
 
+            gamepadOld = gamepad;
             gamepad = gamepad_;
+            keyboardOld = keyboard;
             keyboard = keyboard_;
             bool left = (gamepad.DPad.Left == ButtonState.Pressed || keyboard.IsKeyDown(kLeft));
             bool right = (gamepad.DPad.Right == ButtonState.Pressed || keyboard.IsKeyDown(kRight));
             bool up =(gamepad.DPad.Up == ButtonState.Pressed || keyboard.IsKeyDown(kUp));
             bool down = (gamepad.DPad.Down == ButtonState.Pressed || keyboard.IsKeyDown(kDown));
-            bool shoot = (gamepad.Buttons.A == ButtonState.Pressed || keyboard.IsKeyDown(kShoot));
+            bool shoot = ((gamepad.IsButtonDown(Buttons.A) && gamepadOld.IsButtonUp(Buttons.A)) || (keyboard.IsKeyDown(Keys.Space) && keyboardOld.IsKeyUp(Keys.Space))); ;//(gamepad.Buttons.A == ButtonState.Pressed || keyboard.IsKeyDown(kShoot));
 
             if (left)
             {

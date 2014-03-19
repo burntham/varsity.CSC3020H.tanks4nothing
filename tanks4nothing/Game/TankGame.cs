@@ -149,7 +149,7 @@ namespace tanks4nothing
         {
             bool up = ((GPstateP1.IsButtonUp(Buttons.DPadUp) && GPstateP1Old.IsButtonDown(Buttons.DPadUp)) || (KBstate.IsKeyUp(Keys.Up) && KBstateOld.IsKeyDown(Keys.Up)));
             bool down = ((GPstateP1.IsButtonUp(Buttons.DPadDown) && GPstateP1Old.IsButtonDown(Buttons.DPadDown)) || (KBstate.IsKeyUp(Keys.Down) && KBstateOld.IsKeyDown(Keys.Down)));
-            bool enter = ((GPstateP1.IsButtonUp(Buttons.A) && GPstateP1Old.IsButtonDown(Buttons.A) || (KBstate.IsKeyUp(Keys.Enter) && KBstateOld.IsKeyDown(Keys.Enter))));
+            bool enter = ((GPstateP1.IsButtonUp(Buttons.Start) && GPstateP1Old.IsButtonDown(Buttons.Start) || (KBstate.IsKeyUp(Keys.Enter) && KBstateOld.IsKeyDown(Keys.Enter))));
 
             menuSelection += ((up) ? -1 : (down) ? 1 : 0);
             menuSelection = Math.Abs(menuSelection) % options;
